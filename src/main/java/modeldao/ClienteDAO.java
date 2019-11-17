@@ -30,21 +30,21 @@ public class ClienteDAO {
     
     public void inserir(Cliente cliente) throws SQLException {
         open();
-        sql = "INSERT INTO cliente (cpf, nome, telefone, endereco, email, dataNascimento) VALUES (?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO cliente (cpf, nome, telefone, endereco, email, nascimento) VALUES (?, ?, ?, ?, ?, ?)";
         stmt = this.conn.prepareStatement(sql);
         stmt.setString(1, cliente.getCpf());
         stmt.setString(2, cliente.getNome());        
         stmt.setString(3, cliente.getTelefone());
         stmt.setString(4, cliente.getEndereco());        
         stmt.setString(5, cliente.getEmail());     
-        stmt.setString(6, cliente.getNascimento());
+        stmt.setDate(6, cliente.getNascimento());
         stmt.executeUpdate();
         close();
     }
 
     public void update(Cliente cliente) throws SQLException {
         open();
-        sql = "UPDATE Cliente SET cpf = ?, nome = ?, telefone = ?, endereço = ?, email = ?";
+        sql = "UPDATE Cliente SET cpf = ?, nome = ?, telefone = ?, endereï¿½o = ?, email = ?";
         stmt = this.conn.prepareStatement(sql);
         stmt.setString(1, cliente.getCpf());
         stmt.setString(2, cliente.getNome());        

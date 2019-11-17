@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author milen
@@ -15,9 +17,9 @@ public class Cliente {
     private String telefone;
     private String endereco;
     private String email;
-    private String nascimento;
+    private Date nascimento;
 
-    public Cliente(String cpf, String nome, String telefone, String endereco, String email, String nascimento) {
+    public Cliente(String cpf, String nome, String telefone, String endereco, String email, Date nascimento) {
         this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
@@ -66,16 +68,16 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getNascimento() {
+    public Date getNascimento() {
         return nascimento;
     }
     
-    public String setNascimento() {
-        return nascimento;
+    public void setNascimento(Date nascimento) {
+        this.nascimento= nascimento;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", email=" + email + ", dataNascimento=" + nascimento + '}';
+        return "Cliente{" + "cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", email=" + email + ", dataNascimento=" + nascimento.toString() + '}';
     }
 }

@@ -3,9 +3,9 @@ package controller;
 import application.Main;
 import application.Tela;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import model.Cliente;
 import modeldao.ClienteDAO;
+import utils.ValidacaoDados;
 
 public class CadClienteController {
     Tela tela;
@@ -28,7 +29,7 @@ public class CadClienteController {
     private String endereco;
     private String email;
     private String telefone;
-    private String nascimento;
+    private Date nascimento;
     
     @FXML
     private Button back;
@@ -72,30 +73,59 @@ public class CadClienteController {
         endereco= endcadcli.getText();
         email= mailcadcli.getText();
         telefone= telcadcli.getText();
+        nascimento= Date.valueOf(datacadcli.getValue());
         
-        LocalDate dataNascimento= datacadcli.getValue();
-        
-        try {
-            //dataNascimento.format(DateTimeFormatter.ofPattern("dd MM uuuu"));
-            nascimento= dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
+        if(validarDados()) {
             cliente= new Cliente(cpf, nome, telefone, endereco, email, nascimento);
 
             clienteDAO= new ClienteDAO();
-            clienteDAO.inserir(cliente);
-        } catch(Exception ex) {
-            Alert alert;
-            alert = new Alert(AlertType.ERROR, "Ocorreu um problema", ButtonType.OK);
-            alert.setTitle("Estudante n„o foi cadastrado!");
-            alert.setHeaderText("InformaÁ„o");
-            alert.show();
-            ex.printStackTrace();
+            try {
+            	clienteDAO.inserir(cliente);
+            	
+            	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Sucesso");
+                alert.setHeaderText("Cliente cadastrado no sistema!");
+                alert.show();
+            } catch(SQLException ex) {
+            	Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro inesperado ocorreu!");
+                alert.setHeaderText("Algum erro ocorreu no Banco de Dados.. chame o desenvolvedor!");
+                alert.show();
+            }
         }
     }
     
-    public boolean validaDados() {
-        String errorMessage= "";
+    public boolean validarDados() {
+    	String errorMessage= "";
+    	
+        if(!ValidacaoDados.validaTamanho(nomecadcli.getText(), 60)) {
+        	errorMessage+= "Nome muito comprido.\n";
+        }
+        if(!ValidacaoDados.validaCpf(cpfcadcli.getText())) {
+        	errorMessage+= "CPF inv√°lido.\n";
+        }
+        if(!ValidacaoDados.validaTamanho(endcadcli.getText(), 80)) {
+        	errorMessage+= "Endere√ßo muito comprido.\n";
+        }
+        if(!ValidacaoDados.validaTamanho(mailcadcli.getText(), 60)) {
+        	errorMessage+= "E-mail muito comprido.\n";
+        }
+        if(!ValidacaoDados.validaTamanho(telcadcli.getText(), 11)) {
+        	errorMessage+= "Telefone muito comprido.\n";
+        }
+        if(datacadcli.getValue() == null) {
+        	errorMessage+= "Data de nascimento n√£o inserida.";
+        }
+        if (errorMessage.length() == 0) {
+            return true;
+        }
         
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro no cadastro do cliente");
+        alert.setHeaderText("Campos inv√°lidos, por favor, corrija...");
+        alert.setContentText(errorMessage);
+        alert.show();
         
+        return false;
     }
 }
