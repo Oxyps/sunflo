@@ -1,0 +1,12 @@
+controller\AltProdutoController.class
+controller\ConsultaClienteController.class
+controller\ConsultaEstoqueController.class
+application\Main.class
+controller\CadastroFuncController.class
+controller\CadClienteController.class
+dao\Database.class
+dao\DatabasePostgreSQL.class
+controller\MenuController.class
+controller\CadProdutoController.class
+controller\LoginController.class
+controller\AltClienteController.class

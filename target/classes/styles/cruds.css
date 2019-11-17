@@ -1,0 +1,63 @@
+#cadbttn {
+    -fx-background-radius: 0;
+    -fx-background-color: #d5a6bd;
+    -fx-border-color: #741b47;
+    -fx-text-fill:  #741b47;
+}
+
+#savealtprod, #addprodcad, #savealtcli, #cadclibttn {
+    -fx-background-radius: 0;
+    -fx-background-color: #d5a6bd;
+    -fx-border-color: #741b47;
+    -fx-text-fill:  #741b47;
+}
+
+#altprodlbl, #cadprodlbl, #lblconprod, #altclilbl, #cadclilbl, #lblconcli {
+    -fx-font-weight: bold;
+    -fx-font: 25px arial;
+}
+
+#back {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill:  #741b47;
+}
+
+.text-field {
+    -fx-background-radius: 0;
+    -fx-border-color: #d5a6bd;
+}
+
+.label {
+    -fx-text-fill: #741b47;
+    -fx-font: 12px arial;
+}
+
+.date-picker {
+    -fx-background-radius: 0;
+    -fx-border-color: #d5a6bd;
+}
+
+.choice-box {
+    -fx-border-color: #d5a6bd;
+    -fx-background-color: #ffffff;
+}
+
+.choice-box .open-button .arrow {
+    -fx-border-color: #741b47;
+    -fx-background-color: #d5a6bd;
+}
+
+.radio-button {
+    -fx-text-fill: #741b47;
+    -fx-font: 10px arial;
+}
+
+.radio-button .radio {
+    -fx-border-color: #d5a6bd;
+    -fx-border-radius: 100;
+}
+
+.radio-button .radio .dot:selected {
+    -fx-background-color: #741b47;
+}

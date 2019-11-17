@@ -1,0 +1,110 @@
+#subtabmenu {
+    -fx-border-color: transparent;
+    -fx-border-insets: 15;
+}
+
+
+#subtabmenu .tab:selected{
+    -fx-background-image: url('../imagens/enfeitetab2.png');
+    -fx-background-position: center;
+}
+
+#subtabmenu .tab{
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-border-insets: 5;
+}
+
+#mainbgborderp {
+    -fx-background-image: url('../imagens/fundomain.jpg');
+}
+
+#allmain1 *, #allmain2 *, #allmain3 *, #allmain4 * {
+    -fx-spacing: 40;
+}
+
+.root {
+    -fx-focus-color: transparent;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-background-color: #d5a6bd;
+    -fx-border-color: #741b47;
+    -fx-text-fill: #741b47;
+}
+
+.label {
+    -fx-text-fill: #741b47;
+    -fx-font: 40px arial;
+    -fx-font-weight: bold;
+}
+
+.titled-pane {
+    -fx-cursor: hand;
+    -fx-font: 14px arial;
+    -fx-font-weight: bold;
+}
+
+.titled-pane * {
+    -fx-font: 14px arial;
+    -fx-spacing: 5;
+}
+
+.titled-pane .arrow {
+  -fx-background-color: #741b47;
+}
+
+.tab-pane {
+  -fx-background-color: #eeeeee;
+  -fx-border-color: #dbb7c8;
+  -fx-background-radius: 60;
+  -fx-border-radius: 60;
+}
+
+.tab-pane .tab {
+    -fx-cursor: hand;
+    -fx-border-insets: 15;
+    -fx-alignment: top-center;
+    -fx-background-color: transparent;
+    -fx-border-radius: 5;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #741b47;
+    -fx-font: 35px arial;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-visibility: hidden;
+}
+
+.tab-pane .tab-header-area .control-buttons-tab * {
+    -fx-visibility: hidden;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.tab {
+    -fx-background-image: url('../imagens/abas.png');
+    -fx-background-position: right;
+    -fx-border-color: transparent;
+}
+
+.tab:selected {
+    -fx-background-image: url('../imagens/enfeitetab.png');
+    -fx-background-position: center;
+}
+
+button:focus, input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+.date-picker * {
+    -fx-font: 14px arial;
+}

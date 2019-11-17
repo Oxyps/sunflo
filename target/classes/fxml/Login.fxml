@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bgborder" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(file:C:/Users/Erick/Documents/NetBeansProjects/Integrador/src/integrador/fundo.jpeg);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <center>
+        <BorderPane fx:id="bpanelog" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" pickOnBounds="false" prefHeight="300.0" prefWidth="225.0" scaleShape="false" style="-fx-background-color: #ead1dc; -fx-background-radius: 35; -fx-border-radius: 35; -fx-border-color: #c992ad;" BorderPane.alignment="CENTER">
+         <center>
+            <VBox fx:id="loginbox" alignment="CENTER" fillWidth="false" pickOnBounds="false" prefHeight="295.0" prefWidth="511.0" style="-fx-spacing: 10;" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="cpf" cacheShape="false" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="25.0" prefWidth="150.0" promptText="CPF" scaleShape="false" style="-fx-border-color: #e1c2d1;" VBox.vgrow="NEVER">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="pass" prefHeight="25.0" prefWidth="150.0" promptText="senha" style="-fx-border-color: #e1c2d1;">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <Label fx:id="errorid" alignment="CENTER" prefHeight="5.0" prefWidth="95.0" text="Erro!" textFill="RED" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="imgerro" fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                           <image>
+                              <Image url="@erro.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Button fx:id="loginbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #d5a6bd;" text="Entrar" textFill="#741b47" />
+                  <Label fx:id="resetpsslbl" alignment="CENTER" prefHeight="6.0" prefWidth="155.0" text="Senha redefinida!" textAlignment="CENTER" textFill="#26d317" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="passfrgt" text="Esqueceu sua senha?" textAlignment="CENTER" textFill="#741b47" underline="true">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </VBox>
+         </center>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <bottom>
+            <Hyperlink fx:id="alteradmin" alignment="TOP_CENTER" text="Alterar Login/Senha" textFill="#741b47" underline="true" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <ImageView fx:id="logo" fitHeight="80.0" fitWidth="177.0" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </top>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </BorderPane>
+   </center>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+   </padding>
+</BorderPane>
