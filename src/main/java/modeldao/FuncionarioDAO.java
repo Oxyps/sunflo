@@ -69,19 +69,19 @@ public class FuncionarioDAO {
     	try {
     		PreparedStatement pstm= conn.prepareStatement(query);
     		pstm.setString(1, cpf);
-    		ResultSet pesquisa= pstm.executeQuery();
-    		if(pesquisa.next()) {
+    		ResultSet resultado= pstm.executeQuery();
+    		if(resultado.next()) {
     			funcionarioCadastrado= new Funcionario(
-            			pesquisa.getInt("codFuncionario"),
-            			pesquisa.getString("password"),
-            			pesquisa.getString("nome"),
-            			pesquisa.getDate("nascimento"),
-            			pesquisa.getString("email"),
-            			pesquisa.getString("endereco"),
-            			pesquisa.getString("cpf"),
-            			pesquisa.getString("telefone"),
-            			pesquisa.getString("atuacaoProfissional"),
-            			pesquisa.getString("grauEscolaridade")
+    					resultado.getInt("codFuncionario"),
+    					resultado.getString("password"),
+    					resultado.getString("nome"),
+    					resultado.getDate("nascimento"),
+    					resultado.getString("email"),
+    					resultado.getString("endereco"),
+    					resultado.getString("cpf"),
+    					resultado.getString("telefone"),
+    					resultado.getString("atuacaoProfissional"),
+    					resultado.getString("grauEscolaridade")
             	);
     		}
     		return funcionarioCadastrado;

@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
 import utils.RenderizarView;
 
 public class MenuController {
-    RenderizarView tela;
+    RenderizarView tela= new RenderizarView();;
     
     @FXML
     private BorderPane mainbgborderp;
@@ -438,21 +438,18 @@ public class MenuController {
     
     @FXML
     private void onActionRenderizarCadastrarCliente() throws IOException {
-        tela= new RenderizarView();
         tela.criarTela("/view/CadastrarClienteView.fxml", Main.CadastrarClienteView);
         Main.MenuView.close();
     }
     
     @FXML
     private void onActionRenderizarConsultarCliente() throws IOException {
-        tela= new RenderizarView();
         tela.criarTela("/view/ConsultarClienteView.fxml", Main.ConsultarClienteView);
         Main.MenuView.close();
     }
     
     @FXML
     private void onActionRenderizarAlterarCliente() throws IOException {
-        tela= new RenderizarView();
         tela.criarTela("/view/AlterarClienteView.fxml", Main.AlterarClienteView);
         Main.MenuView.close();
     }

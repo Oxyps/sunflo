@@ -92,10 +92,10 @@ public class CadastrarClienteController {
         	errorMessage+= "Nome muito comprido.\n";
         }
         if(!ValidarDados.validaCpf(cpf)) {
-        	errorMessage+= "CPF inv·lido.\n";
+        	errorMessage+= "CPF inv√°lido.\n";
         }
         if(!ValidarDados.validaTamanho(endereco, 80)) {
-        	errorMessage+= "EndereÁo muito comprido.\n";
+        	errorMessage+= "Endere√ßo muito comprido.\n";
         }
         if(!ValidarDados.validaTamanho(email, 60)) {
         	errorMessage+= "E-mail muito comprido.\n";
@@ -104,7 +104,7 @@ public class CadastrarClienteController {
         	errorMessage+= "Telefone muito comprido.\n";
         }
         if(nascimento == null) {
-        	errorMessage+= "Data de nascimento n„o inserida.";
+        	errorMessage+= "Data de nascimento n√£o inserida.";
         }
         if (errorMessage.length() == 0) {
             return true;
@@ -112,7 +112,7 @@ public class CadastrarClienteController {
         
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erro no cadastro do cliente");
-        alert.setHeaderText("Campos inv·lidos, por favor, corrija...");
+        alert.setHeaderText("Campos inv√°lidos, por favor, corrija...");
         alert.setContentText(errorMessage);
         alert.show();
         

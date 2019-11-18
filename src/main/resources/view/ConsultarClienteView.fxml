@@ -51,15 +51,14 @@
                   <Insets left="1050.0" />
                </GridPane.margin>
             </ImageView>
-            <TableView fx:id="tableconcli" prefHeight="115.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TableView fx:id="tableClientes" prefHeight="115.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <columns>
-                <TableColumn fx:id="idtableconcli" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="nometableconcli" prefWidth="190.0" text="Nome" />
-                  <TableColumn fx:id="cpftableconcli" prefWidth="145.0" text="CPF" />
-                  <TableColumn fx:id="dtnasctableconcli" maxWidth="323.0" minWidth="-1.0" prefWidth="212.0" text="Dt de Nascimento" />
-                  <TableColumn fx:id="teltableconcli" prefWidth="108.0" text="Telefone" />
-                  <TableColumn fx:id="endtableconcli" prefWidth="348.0" text="Endereço" />
-                  <TableColumn fx:id="mailtableconcli" minWidth="-1.0" prefWidth="212.0" text="E-mail" />
+                <TableColumn fx:id="tableClienteNome" prefWidth="190.0" text="Nome" />
+                  <TableColumn fx:id="tableClienteCpf" prefWidth="145.0" text="CPF" />
+                  <TableColumn fx:id="tableClienteNascimento" maxWidth="323.0" minWidth="-1.0" prefWidth="212.0" text="Data de nascimento" />
+                  <TableColumn fx:id="tableClienteTelefone" prefWidth="108.0" text="Telefone" />
+                  <TableColumn fx:id="tableClienteEndereco" prefWidth="348.0" text="Endereço" />
+                  <TableColumn fx:id="tableClienteEmail" minWidth="-1.0" prefWidth="212.0" text="E-mail" />
               </columns>
             </TableView>
          </children>

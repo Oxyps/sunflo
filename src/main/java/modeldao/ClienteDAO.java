@@ -8,8 +8,13 @@ package modeldao;
 import dbdao.DatabasePostgreSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Cliente;
+import model.Funcionario;
 
 /**
  *
@@ -54,4 +59,33 @@ public class ClienteDAO {
         stmt.executeUpdate();
         close();
     }
+
+	public List<Cliente> carregar() throws SQLException {
+		open();
+		String query= "SELECT * FROM Cliente";
+		List<Cliente> clientes= new ArrayList<Cliente>();
+		
+		try {
+			PreparedStatement pstm= conn.prepareStatement(query);
+    		ResultSet resultado= pstm.executeQuery();
+    		
+    		while(resultado.next()) {
+    			Cliente cliente= new Cliente(
+    				resultado.getString("cpf"),
+    				resultado.getString("nome"),
+    				resultado.getString("telefone"),
+    				resultado.getString("endereco"),
+    				resultado.getString("email"),
+    				resultado.getDate("nascimento")
+    			);
+    			
+    			clientes.add(cliente);
+    		}
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		
+		close();
+		return clientes;
+	}
 }

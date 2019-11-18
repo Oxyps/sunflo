@@ -13,18 +13,17 @@ create table Cliente(
 	nome varchar(60) not null,
 	telefone char(11) not null,
 	endereco varchar(80) not null,
-	email varchar(60) not null,
+	email varchar(60) unique not null,
 	nascimento Date not null
 );
 
 create table Funcionario(
-	codFuncionario serial primary key,
 	password varchar(12) not null,
 	nome varchar(60) not null,
 	nascimento date not null,
-	email varchar(60),
+	email varchar(60) unique,
 	endereco varchar(80),
-	cpf varchar(11) not null,
+	cpf varchar(11) primary key not null,
 	telefone char(11) not null,
 	atuacaoProfissional varchar(60),
 	grauEscolaridade varchar(60) not null
@@ -54,10 +53,10 @@ create table Produto(
 );
 
 create table FuncionarioServico(
-	codFuncionario int,
+	cpfFuncionario varchar(11),
 	codServico int,
 	
-	constraint FK_FS_Funcionario foreign key(codFuncionario) references Funcionario(codFuncionario) on update cascade on delete set null,
+	constraint FK_FS_Funcionario foreign key(cpfFuncionario) references Funcionario(cpf) on update cascade on delete set null,
 	constraint FK_FS_Servico foreign key(codServico) references Servico(codServico) on update cascade on delete set null
 );
 
@@ -78,15 +77,15 @@ create table Agenda(
 );
 
 create table FuncionarioAgendaCliente(
-	codFuncionario int,
-	cpf varchar(11),
+	cpfFuncionario varchar(11),
+	cpfCliente varchar(11),
 	data date,
 	horario time,
 	codServico int,
 	status varchar(35),
 	
-	constraint FK_FAC_Funcionario foreign key(codFuncionario) references Funcionario(codFuncionario) on update cascade on delete set null,
-	constraint FK_FAC_Cliente foreign key(cpf) references Cliente(cpf) on update cascade on delete cascade,
+	constraint FK_FAC_Funcionario foreign key(cpfFuncionario) references Funcionario(cpf) on update cascade on delete set null,
+	constraint FK_FAC_Cliente foreign key(cpfCliente) references Cliente(cpf) on update cascade on delete cascade,
 	constraint FK_FAC_AgendaData foreign key(data) references Agenda(data) on update cascade on delete cascade,
 	constraint FK_FAC_AgendaHorario foreign key(horario) references Agenda(horario) on update cascade on delete cascade,
 	constraint FK_FAC_Servico foreign key(codServico) references Servico(codServico) on update cascade on delete set null

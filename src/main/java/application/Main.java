@@ -27,7 +27,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
        tela= new RenderizarView();
-       tela.criarTela("/view/LoginView.fxml", LoginView);
+       tela.criarTela("/view/MenuView.fxml", MenuView);
+//       tela.criarTela("/view/LoginView.fxml", LoginView);
     }
     
     public static void main(String[] args) {

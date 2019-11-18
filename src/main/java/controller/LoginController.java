@@ -39,15 +39,15 @@ public class LoginController {
     	
     	if (!ValidarDados.validaTamanho(passwordDigitado, 12) || !ValidarDados.validaTamanho(cpfDigitado, 11)) {
     		labelError.setText("Erro no preenchimento dos dados!");
-    		labelError.setVisible(true);
         }else if(!ValidarDados.validaCpf(cpfDigitado)){
             labelError.setText("CPF inválido!");
         }else {
             Funcionario funcionario;
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            
-            funcionario= funcionarioDAO.buscarPorCpf(cpfDigitado);
 
+            System.out.println("taaqui");
+            funcionario= funcionarioDAO.buscarPorCpf(cpfDigitado);
+            System.out.println("taaqui");
             if (funcionario == null) {
                 labelError.setText("Funcionario não encontrado!");
             }else if(!funcionario.getPassword().equals(passwordDigitado))
@@ -59,6 +59,7 @@ public class LoginController {
                 Main.LoginView.close();
             }
         }
+		labelError.setVisible(true);
     }
 
 }
