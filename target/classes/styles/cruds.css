@@ -1,3 +1,7 @@
+#boxbg {
+    -fx-background-image: url('../imagens/fundocad.png');
+}
+
 #cadbttn {
     -fx-background-radius: 0;
     -fx-background-color: #d5a6bd;
@@ -5,16 +9,30 @@
     -fx-text-fill:  #741b47;
 }
 
-#savealtprod, #addprodcad, #savealtcli, #cadclibttn {
+#boxception2 * {
+    -fx-spacing: 10;
+}
+
+#errorcad {
+    -fx-font-weight: bold;
+    -fx-text-fill: red;
+}
+
+#addprodcad, #savealtprod, #altprodbttn, 
+#cadclibttn, #savealtcli, #altclibttn, 
+#cadfuncbttn, #savealtfunc, #altfuncbttn {
     -fx-background-radius: 0;
     -fx-background-color: #d5a6bd;
     -fx-border-color: #741b47;
     -fx-text-fill:  #741b47;
+    -fx-font: 26px arial;
 }
 
-#altprodlbl, #cadprodlbl, #lblconprod, #altclilbl, #cadclilbl, #lblconcli {
+#altprodlbl, #cadprodlbl, #lblconprod, 
+#altclilbl, #cadclilbl, #lblconcli, 
+#altfunclbl, #newfunclab, #lblconfunc {
     -fx-font-weight: bold;
-    -fx-font: 25px arial;
+    -fx-font: 44px arial;
 }
 
 #back {
@@ -25,22 +43,32 @@
 
 .text-field {
     -fx-background-radius: 0;
-    -fx-border-color: #d5a6bd;
+    -fx-font-size: 20;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .label {
     -fx-text-fill: #741b47;
-    -fx-font: 12px arial;
+    -fx-font: 26px arial;
 }
 
 .date-picker {
     -fx-background-radius: 0;
     -fx-border-color: #d5a6bd;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
+}
+.calendar-cell-today {
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .choice-box {
     -fx-border-color: #d5a6bd;
     -fx-background-color: #ffffff;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .choice-box .open-button .arrow {
@@ -50,7 +78,9 @@
 
 .radio-button {
     -fx-text-fill: #741b47;
-    -fx-font: 10px arial;
+    -fx-font: 20px arial;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .radio-button .radio {
@@ -60,4 +90,17 @@
 
 .radio-button .radio .dot:selected {
     -fx-background-color: #741b47;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
+}
+
+.input, 
+.select,
+.table-view {
+  -fx-focus-color: #d5a6bd;
+  -fx-faint-focus-color: #d5a6bd;
 }

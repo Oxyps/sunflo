@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class DatabasePostgreSQL {     
     public static Connection conectar(){
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/sunflo", "postgres", "@Aa241578912");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/Integrador", "postgres", "3294");
         } catch (SQLException e) {		
             throw new RuntimeException(e);
         }    

@@ -24,7 +24,8 @@
 }
 
 .root {
-    -fx-focus-color: transparent;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .button {
@@ -34,6 +35,8 @@
     -fx-background-color: #d5a6bd;
     -fx-border-color: #741b47;
     -fx-text-fill: #741b47;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .label {
@@ -46,11 +49,15 @@
     -fx-cursor: hand;
     -fx-font: 14px arial;
     -fx-font-weight: bold;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .titled-pane * {
-    -fx-font: 14px arial;
     -fx-spacing: 5;
+    -fx-font-size: 14;
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .titled-pane .arrow {
@@ -62,6 +69,8 @@
   -fx-border-color: #dbb7c8;
   -fx-background-radius: 60;
   -fx-border-radius: 60;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: #d5a6bd;
 }
 
 .tab-pane .tab {
@@ -101,8 +110,9 @@
     -fx-background-position: center;
 }
 
-button:focus, input:focus, select:focus, textarea:focus {
-  outline: none;
+button, input, select, textarea {
+    -fx-focus-color: #d5a6bd;
+    -fx-faint-focus-color: #d5a6bd;
 }
 
 .date-picker * {

@@ -23,4 +23,5 @@
   		<version>42.2.7</version>
   	</dependency>
   </dependencies>
+    <name>sunflo</name>
 </project>

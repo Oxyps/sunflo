@@ -5,13 +5,10 @@
  */
 package application;
 
+import utils.RenderizarView;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -19,15 +16,18 @@ import javafx.stage.Stage;
  * @author Erick
  */
 public class Main extends Application {
-    Tela tela;
+    RenderizarView tela;
     
-    public static Stage MainMenu = new Stage();
-    public static Stage CadastroCliente = new Stage();
+    public static Stage LoginView = new Stage();
+    public static Stage MenuView = new Stage();
+    public static Stage CadastrarClienteView = new Stage();
+    public static Stage ConsultarClienteView = new Stage();
+    public static Stage AlterarClienteView = new Stage();
     
     @Override
     public void start(Stage stage) throws IOException {
-        tela= new Tela();
-       tela.criarTela("/fxml/MainMenu.fxml", MainMenu);
+       tela= new RenderizarView();
+       tela.criarTela("/view/LoginView.fxml", LoginView);
     }
     
     public static void main(String[] args) {

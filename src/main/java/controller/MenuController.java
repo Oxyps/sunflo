@@ -20,10 +20,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import application.Tela;
+import utils.RenderizarView;
 
 public class MenuController {
-    Tela tela;
+    RenderizarView tela;
     
     @FXML
     private BorderPane mainbgborderp;
@@ -437,9 +437,23 @@ public class MenuController {
     private HBox mainlbls3;
     
     @FXML
-    private void onActionCadastrarCliente() throws IOException {
-        tela= new Tela();
-        tela.criarTela("/fxml/CadastroCliente.fxml", Main.CadastroCliente);
-        Main.MainMenu.close();
+    private void onActionRenderizarCadastrarCliente() throws IOException {
+        tela= new RenderizarView();
+        tela.criarTela("/view/CadastrarClienteView.fxml", Main.CadastrarClienteView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarConsultarCliente() throws IOException {
+        tela= new RenderizarView();
+        tela.criarTela("/view/ConsultarClienteView.fxml", Main.ConsultarClienteView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarAlterarCliente() throws IOException {
+        tela= new RenderizarView();
+        tela.criarTela("/view/AlterarClienteView.fxml", Main.AlterarClienteView);
+        Main.MenuView.close();
     }
 }
