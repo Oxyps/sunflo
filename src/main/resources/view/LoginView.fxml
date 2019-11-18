@@ -18,17 +18,17 @@
          <center>
             <VBox fx:id="loginbox" alignment="CENTER" fillWidth="false" pickOnBounds="false" prefHeight="295.0" prefWidth="511.0" style="-fx-spacing: 10;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="cpf" cacheShape="false" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="25.0" prefWidth="175.0" promptText="CPF" scaleShape="false" style="-fx-border-color: #e1c2d1;" VBox.vgrow="NEVER">
+                  <TextField fx:id="txtFieldCpf" cacheShape="false" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="25.0" prefWidth="175.0" promptText="CPF" scaleShape="false" style="-fx-border-color: #e1c2d1;" VBox.vgrow="NEVER">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="pass" prefHeight="25.0" prefWidth="175.0" promptText="senha" style="-fx-border-color: #e1c2d1;">
+                  <PasswordField fx:id="txtFieldPassword" prefHeight="25.0" prefWidth="175.0" promptText="senha" style="-fx-border-color: #e1c2d1;">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </PasswordField>
-                  <Label fx:id="errorid" alignment="CENTER" prefHeight="5.0" prefWidth="95.0" text="Erro!" textFill="RED" visible="false">
+                  <Label fx:id="labelError" alignment="CENTER" prefHeight="5.0" prefWidth="500" textFill="RED" visible="false">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
@@ -40,7 +40,7 @@
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Button fx:id="loginbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #d5a6bd;" text="Entrar" textFill="#741b47" />
+                  <Button fx:id="btnLogin" onAction="#onActionLogin" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #d5a6bd;" text="Entrar" textFill="#741b47" />
                   
                </children>
             </VBox>

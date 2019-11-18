@@ -22,10 +22,9 @@ public class RenderizarView {
         Scene scene = new Scene(root, 1366, 700);
         
         stage.setScene(scene);
-        stage.setTitle("Sunflô");
-	stage.getIcons().add(new Image("/imagens/sunflo.png"));
+        stage.setTitle("SunflÃ´");
+        stage.getIcons().add(new Image("/imagens/sunflo.png"));
         stage.setResizable(false);
-        
         stage.show();
     }
 }

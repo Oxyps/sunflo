@@ -13,9 +13,9 @@ import java.sql.Date;
  */
 public class Funcionario {
     private int codFuncionario;
-    private String apelido;
+    private String password;
     private String nome;
-    private Date dataNascimento;
+    private Date nascimento;
     private String email;
     private String endereco;
     private String cpf;
@@ -23,11 +23,11 @@ public class Funcionario {
     private String atuacaoProfissional;
     private String grauEscolaridade;
 
-    public Funcionario(int codFuncionario, String apelido, String nome, Date dataNascimento, String email, String endereco, String cpf, String telefone, String atuacaoProfissional, String grauEscolaridade) {
+    public Funcionario(int codFuncionario, String password, String nome, Date nascimento, String email, String endereco, String cpf, String telefone, String atuacaoProfissional, String grauEscolaridade) {
         this.codFuncionario = codFuncionario;
-        this.apelido = apelido;
+        this.password = password;
         this.nome = nome;
-        this.dataNascimento = dataNascimento;
+        this.nascimento = nascimento;
         this.email = email;
         this.endereco = endereco;
         this.cpf = cpf;
@@ -44,12 +44,12 @@ public class Funcionario {
         this.codFuncionario = codFuncionario;
     }
 
-    public String getApelido() {
-        return apelido;
+    public String getPassword() {
+        return password;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNome() {
@@ -60,12 +60,12 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public Date getNascimento() {
+        return nascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
     }
 
     public String getEmail() {
@@ -118,7 +118,7 @@ public class Funcionario {
 
     @Override
     public String toString() {
-        return "Funcionario{" + "codFuncionario=" + codFuncionario + ", apelido=" + apelido + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", email=" + email + ", endereco=" + endereco + ", cpf=" + cpf + ", telefone=" + telefone + ", atuacaoProfissional=" + atuacaoProfissional + ", grauEscolaridade=" + grauEscolaridade + '}';
+        return "Funcionario{" + "codFuncionario=" + codFuncionario + ", password=" + password + ", nome=" + nome + ", nascimento=" + nascimento + ", email=" + email + ", endereco=" + endereco + ", cpf=" + cpf + ", telefone=" + telefone + ", atuacaoProfissional=" + atuacaoProfissional + ", grauEscolaridade=" + grauEscolaridade + '}';
     }
     
 }

@@ -2,7 +2,7 @@
     -fx-background-image: url('../imagens/fundocad.png');
 }
 
-#cadbttn {
+#btnCadastrar {
     -fx-background-radius: 0;
     -fx-background-color: #d5a6bd;
     -fx-border-color: #741b47;
@@ -19,7 +19,7 @@
 }
 
 #addprodcad, #savealtprod, #altprodbttn, 
-#cadclibttn, #savealtcli, #altclibttn, 
+#btnCadastrarCliente, #savealtcli, #altclibttn, 
 #cadfuncbttn, #savealtfunc, #altfuncbttn {
     -fx-background-radius: 0;
     -fx-background-color: #d5a6bd;
@@ -35,7 +35,7 @@
     -fx-font: 44px arial;
 }
 
-#back {
+#btnBack {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-text-fill:  #741b47;

@@ -31,7 +31,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button onAction="#onActionBack" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true">
+            <Button fx:id="btnBack" onAction="#onActionBack" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true">
                <graphic>
                   <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
                      <image>
@@ -99,7 +99,7 @@
                </graphic>
             </Label>
             <Label alignment="CENTER" minWidth="-Infinity" text="Cadastrar Cliente" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <Button onAction="#onActionCadastrarCliente"  minWidth="-Infinity" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <Button fx:id="btnCadastrarCliente" onAction="#onActionCadastrarCliente"  minWidth="-Infinity" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
             <TextField fx:id="txtFieldTelefone" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <DatePicker fx:id="datePickerNascimento" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
          </children>

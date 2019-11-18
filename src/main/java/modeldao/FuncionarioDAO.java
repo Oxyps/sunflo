@@ -8,6 +8,7 @@ package modeldao;
 import dbdao.DatabasePostgreSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Funcionario;
 
@@ -25,16 +26,16 @@ public class FuncionarioDAO {
     }
 
     private void close() throws SQLException {
-            conn.close();
+        conn.close();
     }
     
     public void inserir(Funcionario funcionario) throws SQLException {
         open();
-        sql = "INSERT INTO Funcionario (apelido, nome, dataNascimento, email, endereco, cpf, telefone, atuacaoProfissional, grauEscolaridade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO Funcionario (password, nome, nascimento, email, endereco, cpf, telefone, atuacaoProfissional, grauEscolaridade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         stmt = this.conn.prepareStatement(sql);
-        stmt.setString(1, funcionario.getApelido());
+        stmt.setString(1, funcionario.getPassword());
         stmt.setString(2, funcionario.getNome());
-        stmt.setDate(3, funcionario.getDataNascimento());
+        stmt.setDate(3, funcionario.getNascimento());
         stmt.setString(4, funcionario.getEmail());
         stmt.setString(5, funcionario.getEndereco());
         stmt.setString(6, funcionario.getCpf());
@@ -46,11 +47,11 @@ public class FuncionarioDAO {
 
     public void update(Funcionario funcionario) throws SQLException {
         open();
-        sql = "UPDATE Funcionario SET apelido = ?, nome = ?, dataNascimento = ?, email = ?, endereco = ?, cpf = ?, telefone = ?, atuacaoProfissional = ?, grauEscolaridade = ?";
+        sql = "UPDATE Funcionario SET password = ?, nome = ?, nascimento = ?, email = ?, endereco = ?, cpf = ?, telefone = ?, atuacaoProfissional = ?, grauEscolaridade = ?";
         stmt = this.conn.prepareStatement(sql);
-        stmt.setString(1, funcionario.getApelido());
+        stmt.setString(1, funcionario.getPassword());
         stmt.setString(2, funcionario.getNome());
-        stmt.setDate(3, funcionario.getDataNascimento());
+        stmt.setDate(3, funcionario.getNascimento());
         stmt.setString(4, funcionario.getEmail());
         stmt.setString(5, funcionario.getEndereco());
         stmt.setString(6, funcionario.getCpf());
@@ -58,5 +59,37 @@ public class FuncionarioDAO {
         stmt.setString(8, funcionario.getGrauEscolaridade());
         stmt.executeUpdate();
         close();
-    }   
+    }
+    
+    public Funcionario buscarPorCpf(String cpf) throws SQLException {
+    	open();
+    	
+    	String query= "SELECT * FROM Funcionario WHERE cpf=?";
+    	Funcionario funcionarioCadastrado= null;
+    	try {
+    		PreparedStatement pstm= conn.prepareStatement(query);
+    		pstm.setString(1, cpf);
+    		ResultSet pesquisa= pstm.executeQuery();
+    		if(pesquisa.next()) {
+    			funcionarioCadastrado= new Funcionario(
+            			pesquisa.getInt("codFuncionario"),
+            			pesquisa.getString("password"),
+            			pesquisa.getString("nome"),
+            			pesquisa.getDate("nascimento"),
+            			pesquisa.getString("email"),
+            			pesquisa.getString("endereco"),
+            			pesquisa.getString("cpf"),
+            			pesquisa.getString("telefone"),
+            			pesquisa.getString("atuacaoProfissional"),
+            			pesquisa.getString("grauEscolaridade")
+            	);
+    		}
+    		return funcionarioCadastrado;
+    	} catch(SQLException ex) {
+    		ex.printStackTrace();
+    	}
+
+    	close();
+    	return null;
+    }
 }
