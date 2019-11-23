@@ -20,7 +20,7 @@ import modeldao.ClienteDAO;
 import utils.ValidarDados;
 
 public class CadastrarClienteController {
-    RenderizarView tela;
+    RenderizarView tela= new RenderizarView();
     private Cliente cliente;
     private ClienteDAO clienteDAO;
     
@@ -50,7 +50,6 @@ public class CadastrarClienteController {
     private DatePicker datePickerNascimento;
 
     public void onActionBack() throws IOException {
-        tela= new RenderizarView();
         tela.criarTela("/view/MenuView.fxml", Main.MenuView);
         Main.CadastrarClienteView.close();
     }
@@ -63,58 +62,48 @@ public class CadastrarClienteController {
         telefone= txtFieldTelefone.getText();
         nascimento= Date.valueOf(datePickerNascimento.getValue());
         
-        if(validarDados()) {
+    	if(	nome != null &&
+    		cpf != null &&
+    		endereco != null &&
+    		nascimento != null
+    	) {
             cliente= new Cliente(cpf, nome, telefone, endereco, email, nascimento);
-
-            clienteDAO= new ClienteDAO();
-            try {
-            	clienteDAO.inserir(cliente);
-            	
-            	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Sucesso");
-                alert.setHeaderText("Cliente cadastrado no sistema!");
-                alert.show();
-            } catch(SQLException ex) {
-            	Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erro inesperado ocorreu!");
-                alert.setHeaderText("Algum erro ocorreu no Banco de Dados.. chame o desenvolvedor!");
-                alert.show();
-                
-                ex.printStackTrace();
-            }
-        }
+        
+	        if(dadosValidos(cliente)) {
+	            clienteDAO= new ClienteDAO();
+	            try {
+	            	clienteDAO.inserir(cliente);
+	            	
+	            	tela.criarMensagemSuccess("Cliente cadastrado no sistema!");
+	            } catch(SQLException ex) {
+	            	tela.criarMensagemError(ex.getMessage());
+	            }
+	        }
+    	} else {
+    		tela.criarMensagemError("Por favor, preencha os campos em branco!");
+    	}
     }
     
-    public boolean validarDados() {
+    public boolean dadosValidos(Cliente cliente) {
     	String errorMessage= "";
     	
-        if(!ValidarDados.validaTamanho(nome, 60)) {
+        if(!ValidarDados.validaTamanho(cliente.getNome(), 0, 60)) {
         	errorMessage+= "Nome muito comprido.\n";
         }
-        if(!ValidarDados.validaCpf(cpf)) {
+        if(!ValidarDados.validaCpf(cliente.getCpf())) {
         	errorMessage+= "CPF inválido.\n";
         }
-        if(!ValidarDados.validaTamanho(endereco, 80)) {
-        	errorMessage+= "Endereço muito comprido.\n";
+        if(!ValidarDados.validaTamanho(cliente.getEndereco(), 0, 80)) {
+        	errorMessage+= "Erro no endereço. Por favor, corrija.\n";
         }
-        if(!ValidarDados.validaTamanho(email, 60)) {
-        	errorMessage+= "E-mail muito comprido.\n";
-        }
-        if(!ValidarDados.validaTamanho(telefone, 11)) {
-        	errorMessage+= "Telefone muito comprido.\n";
-        }
-        if(nascimento == null) {
+        if(cliente.getNascimento() == null) {
         	errorMessage+= "Data de nascimento não inserida.";
         }
         if (errorMessage.length() == 0) {
             return true;
         }
         
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erro no cadastro do cliente");
-        alert.setHeaderText("Campos inválidos, por favor, corrija...");
-        alert.setContentText(errorMessage);
-        alert.show();
+        tela.criarMensagemError(errorMessage);
         
         return false;
     }

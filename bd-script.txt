@@ -11,9 +11,9 @@ drop table Agenda;
 create table Cliente(
 	cpf varchar(11) primary key not null,
 	nome varchar(60) not null,
-	telefone char(11) not null,
+	telefone char(11),
 	endereco varchar(80) not null,
-	email varchar(60) unique not null,
+	email varchar(60) unique,
 	nascimento Date not null
 );
 

@@ -19,7 +19,7 @@
 }
 
 #addprodcad, #savealtprod, #altprodbttn, 
-#btnCadastrarCliente, #savealtcli, #altclibttn, 
+#btnCadastrarCliente, #btnDeletarCliente, #btnAlterarCliente, 
 #cadfuncbttn, #savealtfunc, #altfuncbttn {
     -fx-background-radius: 0;
     -fx-background-color: #d5a6bd;

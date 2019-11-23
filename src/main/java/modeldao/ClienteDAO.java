@@ -38,24 +38,25 @@ public class ClienteDAO {
         sql = "INSERT INTO cliente (cpf, nome, telefone, endereco, email, nascimento) VALUES (?, ?, ?, ?, ?, ?)";
         stmt = this.conn.prepareStatement(sql);
         stmt.setString(1, cliente.getCpf());
-        stmt.setString(2, cliente.getNome());        
+        stmt.setString(2, cliente.getNome());
         stmt.setString(3, cliente.getTelefone());
-        stmt.setString(4, cliente.getEndereco());        
-        stmt.setString(5, cliente.getEmail());     
+        stmt.setString(4, cliente.getEndereco());
+        stmt.setString(5, cliente.getEmail());
         stmt.setDate(6, cliente.getNascimento());
         stmt.executeUpdate();
         close();
     }
 
-    public void update(Cliente cliente) throws SQLException {
+    public void alterar(Cliente novoCliente) throws SQLException {
         open();
-        sql = "UPDATE Cliente SET cpf = ?, nome = ?, telefone = ?, endere�o = ?, email = ?";
+        sql = "UPDATE Cliente SET nome = ?, telefone = ?, endereco = ?, email = ?, nascimento= ? WHERE cpf= ?";
         stmt = this.conn.prepareStatement(sql);
-        stmt.setString(1, cliente.getCpf());
-        stmt.setString(2, cliente.getNome());        
-        stmt.setString(3, cliente.getTelefone());
-        stmt.setString(4, cliente.getEndereco());        
-        stmt.setString(5, cliente.getEmail());
+        stmt.setString(1, novoCliente.getNome());
+        stmt.setString(2, novoCliente.getTelefone());
+        stmt.setString(3, novoCliente.getEndereco());
+        stmt.setString(4, novoCliente.getEmail());
+        stmt.setDate(5, novoCliente.getNascimento());
+        stmt.setString(6, novoCliente.getCpf());
         stmt.executeUpdate();
         close();
     }

@@ -30,12 +30,6 @@ public class ConsultarClienteController implements Initializable {
     ClienteDAO clienteDAO;
 
     @FXML
-    private TextField concli;
-
-    @FXML
-    private ImageView conclilogo;
-
-    @FXML
     private TableView<Cliente> tableClientes;
     
     @FXML

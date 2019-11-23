@@ -9,6 +9,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -26,5 +27,16 @@ public class RenderizarView {
         stage.getIcons().add(new Image("/imagens/sunflo.png"));
         stage.setResizable(false);
         stage.show();
+    }
+    
+    public void criarMensagemError(String mensagem) {
+    	Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText(mensagem);
+        alert.show();
+    }
+    public void criarMensagemSuccess(String mensagem) {
+    	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    	alert.setContentText(mensagem);
+    	alert.show();
     }
 }

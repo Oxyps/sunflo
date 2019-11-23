@@ -33,9 +33,9 @@ public class ValidarDados {
         return digito1 == aux[9] && digito2 == aux[10];
     }
 
-    public static boolean validaTamanho(String str, int tam) {
+    public static boolean validaTamanho(String str, int min, int max) {
         if (str != null) {
-            return str.length() <= tam && str.length() > 0;
+            return str.length() <= max && str.length() > min;
         } else {
             return false;
         }
