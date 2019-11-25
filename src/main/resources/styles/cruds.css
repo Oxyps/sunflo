@@ -18,9 +18,10 @@
     -fx-text-fill: red;
 }
 
-#addprodcad, #savealtprod, #altprodbttn, 
-#btnCadastrarCliente, #btnDeletarCliente, #btnAlterarCliente, 
-#cadfuncbttn, #savealtfunc, #altfuncbttn {
+#btnCadastrarProduto, #savealtprod, #btnAlterarProduto, 
+#btnCadastrarCliente, #savealtcli, #btnAlterarCliente, 
+#btnCadastrarFuncionario, #savealtfunc, #altfuncbttn,   
+#incluirServico, #salvarServico {
     -fx-background-radius: 0;
     -fx-background-color: #d5a6bd;
     -fx-border-color: #741b47;

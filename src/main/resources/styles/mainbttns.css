@@ -1,17 +1,28 @@
-#subtabmenu {
+#btnCriarServico, #btnAlterarServico, #btnExcluirServico {
+    -fx-background-color: transparent;
     -fx-border-color: transparent;
-    -fx-border-insets: 15;
+    -fx-text-fill:  #741b47;
+    -fx-font-size: 18;
 }
 
+#condialbl, #agdialbl {
+    -fx-font-size: 22;
+}
 
-#subtabmenu .tab:selected{
-    -fx-background-image: url('../imagens/enfeitetab2.png');
+#subtabmenu {
+    -fx-border-color: transparent;
+    -fx-border-insets: 5;
+    -fx-tab-max-height: 40px;
+}
+
+#subtabmenu .tab:selected * {
+    -fx-background-image: url('../imagens/abas2.png');
+    -fx-text-fill: mediumvioletred;
     -fx-background-position: center;
 }
 
 #subtabmenu .tab{
-    -fx-background-radius: 100;
-    -fx-border-radius: 100;
+    -fx-background-image: url('../imagens/abas2.png');
     -fx-border-insets: 5;
 }
 
@@ -117,4 +128,10 @@ button, input, select, textarea {
 
 .date-picker * {
     -fx-font: 14px arial;
+}
+
+.table-view * {
+    -fx-font: 22px arial;
+    -fx-font-weight: bold;
+    -fx-size: 20;
 }

@@ -4,14 +4,13 @@ drop table FuncionarioAgendaCliente;
 drop table Servico;
 drop table Produto;
 drop table Cliente;
-drop table Estoque;
 drop table Funcionario;
 drop table Agenda;
 
 create table Cliente(
 	cpf varchar(11) primary key not null,
 	nome varchar(60) not null,
-	telefone char(11),
+	telefone varchar(11),
 	endereco varchar(80) not null,
 	email varchar(60) unique,
 	nascimento Date not null
@@ -21,59 +20,53 @@ create table Funcionario(
 	password varchar(12) not null,
 	nome varchar(60) not null,
 	nascimento date not null,
-	email varchar(60) unique,
+	email varchar(60),
 	endereco varchar(80),
 	cpf varchar(11) primary key not null,
-	telefone char(11) not null,
+	telefone varchar(11) not null,
 	atuacaoProfissional varchar(60),
-	grauEscolaridade varchar(60) not null
+	grauEscolaridade varchar(60) not null,
+	sexo character(1)
 );
 
 create table Servico(
-	codServico serial primary key,
+	servicoId serial primary key,
 	nome varchar(60),
-	descricao varchar(80)
-);
-
-create table Estoque(
-	codEstoque serial primary key,
-	nome varchar(60)
+	subservico varchar(80)
 );
 
 create table Produto(
-	codProduto serial primary key,
-	nome varchar(60),
+	produtoId serial primary key,
+	nome varchar(60) not null,
 	descricao varchar(80),
-	quantidadeMinima int,
-	quantidadeAtual int,
-	codEstoque int,
-	valor decimal,
-	
-	constraint FK_ProdutoEstoque foreign key(codEstoque) references estoque(codEstoque) on update cascade on delete set null
+	marca varchar(25) not null,
+	quantidadeMinima int not null,
+	quantidadeAtual int not null,
+	preco decimal(18, 2) not null
 );
 
 create table FuncionarioServico(
-	cpfFuncionario varchar(11),
-	codServico int,
+	cpf varchar(11),
+	servicoId int,
 	
-	constraint FK_FS_Funcionario foreign key(cpfFuncionario) references Funcionario(cpf) on update cascade on delete set null,
-	constraint FK_FS_Servico foreign key(codServico) references Servico(codServico) on update cascade on delete set null
+	constraint FK_FS_Funcionario foreign key(cpf) references Funcionario(cpf) on update cascade on delete set null,
+	constraint FK_FS_Servico foreign key(servicoId) references Servico(servicoId) on update cascade on delete set null
 );
 
 create table ServicoProduto(
-	codServico int,
-	codProduto int,
+	servicoId int,
+	produtoId int,
 	valorServico decimal primary key,
 	valorAjuste decimal,
 	valorPromocional decimal,
-	
-	constraint FK_SP_Servico foreign key(codServico) references Servico(codServico) on update cascade on delete set null,
-	constraint FK_SP_Produto foreign key(codProduto) references Produto(codProduto) on update cascade on delete set null
+
+	constraint FK_SP_Servico foreign key(servicoId) references Servico(servicoId) on update cascade on delete set null,
+	constraint FK_SP_Produto foreign key(produtoId) references Produto(produtoId) on update cascade on delete set null
 );
 
 create table Agenda(
-	data date unique,
-	horario time unique
+	dia date unique,
+	hora time unique
 );
 
 create table FuncionarioAgendaCliente(
@@ -81,12 +74,15 @@ create table FuncionarioAgendaCliente(
 	cpfCliente varchar(11),
 	data date,
 	horario time,
-	codServico int,
+	servicoId int,
 	status varchar(35),
 	
 	constraint FK_FAC_Funcionario foreign key(cpfFuncionario) references Funcionario(cpf) on update cascade on delete set null,
 	constraint FK_FAC_Cliente foreign key(cpfCliente) references Cliente(cpf) on update cascade on delete cascade,
-	constraint FK_FAC_AgendaData foreign key(data) references Agenda(data) on update cascade on delete cascade,
-	constraint FK_FAC_AgendaHorario foreign key(horario) references Agenda(horario) on update cascade on delete cascade,
-	constraint FK_FAC_Servico foreign key(codServico) references Servico(codServico) on update cascade on delete set null
+	constraint FK_FAC_AgendaData foreign key(data) references Agenda(dia) on update cascade on delete cascade,
+	constraint FK_FAC_AgendaHorario foreign key(horario) references Agenda(hora) on update cascade on delete cascade,
+	constraint FK_FAC_Servico foreign key(servicoId) references Servico(servicoId) on update cascade on delete set null
 );
+
+insert into Funcionario(password, nome, nascimento, email, endereco, cpf, telefone, atuacaoProfissional, grauEscolaridade, sexo)
+values('admin', 'admin', '01-11-1999', 'admin', 'admin', '12345678909', 'admin', 'admin', 'admin', 'M');

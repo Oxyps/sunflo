@@ -19,12 +19,12 @@ public class Cliente {
     private String email;
     private Date nascimento;
 
-    public Cliente(String cpf, String nome, String telefone, String endereco, String email, Date nascimento) {
+    public Cliente(String cpf, String nome, String endereco, Date nascimento) {
         this.cpf = cpf;
         this.nome = nome;
-        this.telefone = telefone;
+        this.email = null;
+        this.telefone = null;
         this.endereco = endereco;
-        this.email = email;
         this.nascimento = nascimento;
     }
 

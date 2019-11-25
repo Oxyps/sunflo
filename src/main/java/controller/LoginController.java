@@ -5,11 +5,9 @@ import java.sql.SQLException;
 
 import application.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import model.Funcionario;
 import modeldao.FuncionarioDAO;
 import utils.RenderizarView;
@@ -25,19 +23,13 @@ public class LoginController {
     private PasswordField txtFieldPassword;
 
     @FXML
-    private Button btnLogin;
-
-    @FXML
     private Label labelError;
-
-    @FXML
-    private ImageView imgerro;
     
     public void onActionLogin() throws IOException, SQLException {
     	String cpfDigitado= txtFieldCpf.getText();
     	String passwordDigitado= txtFieldPassword.getText();
     	
-    	if (!ValidarDados.validaTamanho(passwordDigitado, 12) || !ValidarDados.validaTamanho(cpfDigitado, 11)) {
+    	if (!ValidarDados.validaTamanho(passwordDigitado, 0, 12) || !ValidarDados.validaTamanho(cpfDigitado, 0, 11)) {
     		labelError.setText("Erro no preenchimento dos dados!");
         }else if(!ValidarDados.validaCpf(cpfDigitado)){
             labelError.setText("CPF inválido!");
@@ -45,9 +37,7 @@ public class LoginController {
             Funcionario funcionario;
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
-            System.out.println("taaqui");
             funcionario= funcionarioDAO.buscarPorCpf(cpfDigitado);
-            System.out.println("taaqui");
             if (funcionario == null) {
                 labelError.setText("Funcionario não encontrado!");
             }else if(!funcionario.getPassword().equals(passwordDigitado))

@@ -96,19 +96,8 @@
       <VBox fx:id="boxbg" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
             <BorderPane prefHeight="584.0" prefWidth="286.0">
-               <left>
-                  <Button fx:id="back" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true" BorderPane.alignment="CENTER">
-                     <graphic>
-                        <ImageView fx:id="backlogocadfunc" fitHeight="62.0" fitWidth="52.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../imagens/backbttn.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </left>
                <bottom>
-                  <Label fx:id="newfunclab" alignment="CENTER" contentDisplay="TOP" prefHeight="409.0" prefWidth="351.0" text="Novo Funcionário" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+                  <Label fx:id="newfunclab" alignment="CENTER" contentDisplay="TOP" prefHeight="409.0" prefWidth="351.0" text="Cadastrar Funcionário" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="171.0" fitWidth="175.0" preserveRatio="true">
                            <image>
@@ -118,6 +107,17 @@
                      </graphic>
                   </Label>
                </bottom>
+               <top>
+                  <Button fx:id="back" alignment="TOP_LEFT" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true" BorderPane.alignment="TOP_LEFT">
+                     <graphic>
+                        <ImageView fx:id="backlogocadfunc" fitHeight="62.0" fitWidth="52.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagens/backbttn.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </top>
             </BorderPane>
          </children>
       </VBox>

@@ -12,9 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.Cliente;
-import model.Funcionario;
 
 /**
  *
@@ -35,33 +33,31 @@ public class ClienteDAO {
     
     public void inserir(Cliente cliente) throws SQLException {
         open();
-        sql = "INSERT INTO cliente (cpf, nome, telefone, endereco, email, nascimento) VALUES (?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO cliente (cpf, nome, endereco, nascimento) VALUES (?, ?, ?, ?)";
         stmt = this.conn.prepareStatement(sql);
         stmt.setString(1, cliente.getCpf());
         stmt.setString(2, cliente.getNome());
-        stmt.setString(3, cliente.getTelefone());
-        stmt.setString(4, cliente.getEndereco());
-        stmt.setString(5, cliente.getEmail());
-        stmt.setDate(6, cliente.getNascimento());
+        stmt.setString(3, cliente.getEndereco()); 
+        stmt.setDate(4, cliente.getNascimento());
         stmt.executeUpdate();
         close();
     }
 
-    public void alterar(Cliente novoCliente) throws SQLException {
+    public void alterar(Cliente cliente) throws SQLException {
         open();
-        sql = "UPDATE Cliente SET nome = ?, telefone = ?, endereco = ?, email = ?, nascimento= ? WHERE cpf= ?";
+        sql = "UPDATE Cliente SET nome = ?, telefone = ?, endereco = ?, email = ?, nascimento = ? WHERE cpf = ?";
         stmt = this.conn.prepareStatement(sql);
-        stmt.setString(1, novoCliente.getNome());
-        stmt.setString(2, novoCliente.getTelefone());
-        stmt.setString(3, novoCliente.getEndereco());
-        stmt.setString(4, novoCliente.getEmail());
-        stmt.setDate(5, novoCliente.getNascimento());
-        stmt.setString(6, novoCliente.getCpf());
+        stmt.setString(6, cliente.getCpf());
+        stmt.setString(1, cliente.getNome());        
+        stmt.setString(2, cliente.getTelefone());
+        stmt.setString(3, cliente.getEndereco());        
+        stmt.setString(4, cliente.getEmail());        
+        stmt.setDate(5, cliente.getNascimento());
         stmt.executeUpdate();
         close();
     }
-
-	public List<Cliente> carregar() throws SQLException {
+    
+    public List<Cliente> carregar() throws SQLException {
 		open();
 		String query= "SELECT * FROM Cliente";
 		List<Cliente> clientes= new ArrayList<Cliente>();
@@ -74,11 +70,14 @@ public class ClienteDAO {
     			Cliente cliente= new Cliente(
     				resultado.getString("cpf"),
     				resultado.getString("nome"),
-    				resultado.getString("telefone"),
     				resultado.getString("endereco"),
-    				resultado.getString("email"),
     				resultado.getDate("nascimento")
     			);
+    			if(resultado.getString("email") != null)
+    				cliente.setEmail(resultado.getString("email"));
+
+    			if(resultado.getString("telefone") != null)
+    				cliente.setTelefone(resultado.getString("telefone"));
     			
     			clientes.add(cliente);
     		}

@@ -10,30 +10,45 @@ package model;
  * @author milen
  */
 public class Produto {
-    private int codProduto;
+    private int produtoId;
     private String nome;
     private String descricao;
+    private String marca;
     private int quantidadeMinima;
     private int quantidadeAtual;
-    private int codEstoque;
-    private float valor;
+    private double preco;
 
-    public Produto(int codProduto, String nome, String descricao, int quantidadeMinima, int quantidadeAtual, int codEstoque, float valor) {
-        this.codProduto = codProduto;
+	public Produto(String nome, String marca, int quantidadeMinima, int quantidadeAtual, double preco) {
         this.nome = nome;
-        this.descricao = descricao;
+        this.descricao = null;
+        this.preco = preco;
+        this.marca = marca;
         this.quantidadeMinima = quantidadeMinima;
         this.quantidadeAtual = quantidadeAtual;
-        this.codEstoque = codEstoque;
-        this.valor = valor;
+    }
+    
+    public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}  
+
+    public int getProdutoId() {
+        return produtoId;
     }
 
-    public int getCodProduto() {
-        return codProduto;
-    }
-
-    public void setCodProduto(int codProduto) {
-        this.codProduto = codProduto;
+    public void setProdutoId(int produtoId) {
+        this.produtoId = produtoId;
     }
 
     public String getNome() {
@@ -68,25 +83,12 @@ public class Produto {
         this.quantidadeAtual = quantidadeAtual;
     }
 
-    public int getCodEstoque() {
+    /*public int getCodEstoque() {
         return codEstoque;
     }
 
     public void setCodEstoque(int codEstoque) {
         this.codEstoque = codEstoque;
-    }
+    }*/
 
-    public float getValor() {
-        return valor;
-    }
-
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
-
-    @Override
-    public String toString() {
-        return "Produto{" + "codProduto=" + codProduto + ", nome=" + nome + ", descricao=" + descricao + ", quantidadeMinima=" + quantidadeMinima + ", quantidadeAtual=" + quantidadeAtual + ", codEstoque=" + codEstoque + ", valor=" + valor + '}';
-    }
-    
 }

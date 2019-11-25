@@ -29,13 +29,13 @@ public class FuncionarioServicoDAO {
             conn.close();
     }
     
-    public void inserir(FuncionarioServico funcServ) throws SQLException {
-        open();
-        sql = "INSERT INTO FuncionarioServico (codFuncionario, codServico) VALUES (?, ?)";
-        stmt = this.conn.prepareStatement(sql);
-        stmt.setInt(1, funcServ.getFunc().getCodFuncionario());
-        stmt.setInt(2, funcServ.getServ().getCodServico());
-        close();
-    }
+//    public void inserir(FuncionarioServico funcServ) throws SQLException {
+//        open();
+//        sql = "INSERT INTO FuncionarioServico (funcionarioId, servicoId) VALUES (?, ?)";
+//        stmt = this.conn.prepareStatement(sql);
+//        stmt.setInt(1, funcServ.getFunc().getCodFuncionario());
+//        stmt.setInt(2, funcServ.getServ().getCodServico());
+//        close();
+//    }
  
 }

@@ -20,7 +20,7 @@ import modeldao.ClienteDAO;
 import utils.ValidarDados;
 
 public class CadastrarClienteController {
-    RenderizarView tela= new RenderizarView();
+    RenderizarView tela= new RenderizarView();;
     private Cliente cliente;
     private ClienteDAO clienteDAO;
     
@@ -30,6 +30,15 @@ public class CadastrarClienteController {
     private String email;
     private String telefone;
     private Date nascimento;
+    
+    @FXML
+    private Button back;
+    
+    @FXML
+    private Label cadclilbl;
+
+    @FXML
+    private Button cadclibttn;
     
     @FXML
     private TextField txtFieldNome;
@@ -55,26 +64,29 @@ public class CadastrarClienteController {
     }
     
     public void onActionCadastrarCliente() {
-        nome= txtFieldNome.getText();
-        cpf= txtFieldCpf.getText();
-        endereco= txtFieldEndereco.getText();
-        email= txtFieldEmail.getText();
-        telefone= txtFieldTelefone.getText();
-        nascimento= Date.valueOf(datePickerNascimento.getValue());
         
-    	if(	nome != null &&
-    		cpf != null &&
-    		endereco != null &&
-    		nascimento != null
+    	if(	!txtFieldNome.getText().isEmpty() &&
+            !txtFieldCpf.getText().isEmpty() &&
+            !txtFieldEndereco.getText().isEmpty() &&
+            datePickerNascimento.getValue() != null
     	) {
-            cliente= new Cliente(cpf, nome, telefone, endereco, email, nascimento);
+            
+            cliente= new Cliente(txtFieldCpf.getText(),
+            		txtFieldNome.getText(),
+            		txtFieldEndereco.getText(),
+            		Date.valueOf(datePickerNascimento.getValue())
+            );
+            if(!txtFieldEmail.getText().isEmpty())
+            	cliente.setEmail(txtFieldEmail.getText());
+            if(!txtFieldTelefone.getText().isEmpty())
+            	cliente.setEmail(txtFieldTelefone.getText());
         
 	        if(dadosValidos(cliente)) {
 	            clienteDAO= new ClienteDAO();
 	            try {
 	            	clienteDAO.inserir(cliente);
 	            	
-	            	tela.criarMensagemSuccess("Cliente cadastrado no sistema!");
+	            	tela.criarMensagemConfirmation("Cliente cadastrado no sistema!");
 	            } catch(SQLException ex) {
 	            	tela.criarMensagemError(ex.getMessage());
 	            }
@@ -96,6 +108,15 @@ public class CadastrarClienteController {
         if(!ValidarDados.validaTamanho(cliente.getEndereco(), 0, 80)) {
         	errorMessage+= "Erro no endereço. Por favor, corrija.\n";
         }
+        if(cliente.getEmail() != null) {
+        	if(!ValidarDados.validaTamanho(cliente.getEmail(), 0, 60))
+        		errorMessage+= "Erro no email.\n";
+        }
+        if(cliente.getTelefone() != null) {
+        	if(!ValidarDados.validaTamanho(cliente.getTelefone(), 0, 11))
+        		errorMessage+= "Erro no telefone.\n";
+        }
+        	
         if(cliente.getNascimento() == null) {
         	errorMessage+= "Data de nascimento não inserida.";
         }

@@ -3,13 +3,11 @@ package controller;
 import application.Main;
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -19,7 +17,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import utils.RenderizarView;
 
 public class MenuController {
@@ -351,91 +348,16 @@ public class MenuController {
 
     @FXML
     private ChoiceBox<?> chserv198;
-
-    @FXML
-    private Tab clitab;
-
-    @FXML
-    private VBox allmain1;
-
-    @FXML
-    private HBox mainbttns;
-
-    @FXML
-    private Button bttncadcli;
-
-    @FXML
-    private Button bttnconcli;
-
-    @FXML
-    private Button bttnaltcli;
-
-    @FXML
-    private HBox mainlbls;
-
-    @FXML
-    private Tab servtab;
-
-    @FXML
-    private VBox allmain2;
-
-    @FXML
-    private HBox mainbttns1;
-
-    @FXML
-    private Button bttnservcabelo;
-
-    @FXML
-    private Button bttnservunhas;
-
-    @FXML
-    private Button bttnservmaquiagem;
-
-    @FXML
-    private HBox mainlbls1;
-
-    @FXML
-    private Tab estoquetab;
-
-    @FXML
-    private VBox allmain3;
-
-    @FXML
-    private HBox mainbttns2;
-
-    @FXML
-    private Button bttncadprod;
-
-    @FXML
-    private Button bttnconestoque;
-
-    @FXML
-    private Button bttnaltprod;
-
-    @FXML
-    private HBox mainlbls2;
-
-    @FXML
-    private Tab functab;
-
-    @FXML
-    private VBox allmain4;
-
-    @FXML
-    private HBox mainbttns3;
-
-    @FXML
-    private Button bttnconfunc;
-
-    @FXML
-    private Button bttnaltfunc;
-
-    @FXML
-    private Button bttncadfunc;
-
-    @FXML
-    private HBox mainlbls3;
     
+    @FXML
+    private Button btnCriarServico;
+
+    @FXML
+    private Button btnAlterarServico;
+
+    @FXML
+    private Button btnExcluirServico;
+
     @FXML
     private void onActionRenderizarCadastrarCliente() throws IOException {
         tela.criarTela("/view/CadastrarClienteView.fxml", Main.CadastrarClienteView);
@@ -450,7 +372,61 @@ public class MenuController {
     
     @FXML
     private void onActionRenderizarAlterarCliente() throws IOException {
+        tela= new RenderizarView();
         tela.criarTela("/view/AlterarClienteView.fxml", Main.AlterarClienteView);
         Main.MenuView.close();
     }
+    
+    @FXML
+    private void onActionRenderizarCadastrarProduto() throws IOException {
+        tela.criarTela("/view/CadastrarProdutoView.fxml", Main.CadastrarProdutoView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarConsultarProduto() throws IOException {
+        tela.criarTela("/view/ConsultarProdutoView.fxml", Main.ConsultarProdutoView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarAlterarProduto() throws IOException {
+        tela.criarTela("/view/AlterarProdutoView.fxml", Main.AlterarProdutoView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarCadastrarFuncionario() throws IOException {
+        tela.criarTela("/view/CadastrarFuncionarioView.fxml", Main.CadastrarFuncionarioView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarConsultarFuncionario() throws IOException {
+        tela.criarTela("/view/ConsultarFuncionarioView.fxml", Main.ConsultarFuncionarioView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    private void onActionRenderizarAlterarFuncionario() throws IOException {
+        tela.criarTela("/view/AlterarFuncionarioView.fxml", Main.AlterarFuncionarioView);
+        Main.MenuView.close();
+    }
+    
+    @FXML
+    void onActionAlterarServico() {
+
+    }
+
+    @FXML
+    void onActionCriarServico() {
+
+    }
+
+    @FXML
+    void onActionExcluirServico() {
+
+    }
+
+    
 }

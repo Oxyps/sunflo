@@ -23,6 +23,13 @@ public class Main extends Application {
     public static Stage CadastrarClienteView = new Stage();
     public static Stage ConsultarClienteView = new Stage();
     public static Stage AlterarClienteView = new Stage();
+    public static Stage CadastrarProdutoView = new Stage();
+    public static Stage ConsultarProdutoView = new Stage();
+    public static Stage AlterarProdutoView = new Stage();
+    public static Stage CadastrarFuncionarioView = new Stage();
+    public static Stage ConsultarFuncionarioView = new Stage();
+    public static Stage AlterarFuncionarioView = new Stage();
+    
     
     @Override
     public void start(Stage stage) throws IOException {

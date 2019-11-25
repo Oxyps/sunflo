@@ -1,20 +1,18 @@
 package controller;
 
+import application.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-import application.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -28,8 +26,8 @@ import modeldao.ClienteDAO;
 import utils.RenderizarView;
 import utils.ValidarDados;
 
-public class AlterarClienteController implements Initializable {
-	RenderizarView tela= new RenderizarView();
+public class AlterarClienteController implements Initializable{
+    RenderizarView tela= new RenderizarView();
 
     List<Cliente> clientes;
     ObservableList<Cliente> clientesObs;
@@ -44,9 +42,6 @@ public class AlterarClienteController implements Initializable {
     @FXML
     private TableColumn<Cliente, String> tableClienteCpf;
     
-    @FXML
-    private ChoiceBox<?> altclichbx;
-
     @FXML
     private TextField txtFieldNome;
 
@@ -87,12 +82,13 @@ public class AlterarClienteController implements Initializable {
 		tableClientes.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Cliente>() {
 					public void changed(ObservableValue<? extends Cliente> observable, Cliente oldValue, Cliente newValue) {
-						if(newValue != null)
+						if(newValue != null) {
 							txtFieldNome.setText(newValue.getNome());
 							txtFieldEmail.setText(newValue.getEmail());
 							txtFieldEndereco.setText(newValue.getEndereco());
 							txtFieldTelefone.setText(newValue.getTelefone());
 							datePickerNascimento.setValue(newValue.getNascimento().toLocalDate());
+						}
 					}
 				}
         );
@@ -105,24 +101,25 @@ public class AlterarClienteController implements Initializable {
     
     public void onActionAlterarCliente() throws IOException, SQLException {
 		Cliente clienteAntigo= tableClientes.getSelectionModel().getSelectedItem();
-		System.out.println(clienteAntigo.toString());
 		
 		if(btnAlterarCliente.isArmed() && clienteAntigo != null) {
-	
     		Cliente clienteNovo= new Cliente(
     				clienteAntigo.getCpf(),
     				txtFieldNome.getText(),
-    				txtFieldTelefone.getText(),
     				txtFieldEndereco.getText(),
-    				txtFieldEmail.getText(),
     				Date.valueOf(datePickerNascimento.getValue())
     	    );
+    		
+    		if(txtFieldTelefone.getText() != null)
+    			clienteNovo.setTelefone(txtFieldTelefone.getText());
+    		if(txtFieldEmail.getText() != null)
+    			clienteNovo.setEmail(txtFieldEmail.getText());
     		
     		if(dadosValidos(clienteNovo)) {
 	    		try {
 	    			clienteDAO.alterar(clienteNovo);
 	    			
-	    			tela.criarMensagemSuccess("Cliente alterado com sucesso!");
+	    			tela.criarMensagemConfirmation("Cliente alterado com sucesso!");
 	    		} catch(SQLException ex) {
 	    			tela.criarMensagemError(ex.getMessage());
 	    		}

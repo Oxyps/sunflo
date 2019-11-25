@@ -12,7 +12,6 @@ import java.sql.Date;
  * @author milen
  */
 public class Funcionario {
-    private int codFuncionario;
     private String password;
     private String nome;
     private Date nascimento;
@@ -22,9 +21,9 @@ public class Funcionario {
     private String telefone;
     private String atuacaoProfissional;
     private String grauEscolaridade;
+    private String sexo;
 
-    public Funcionario(int codFuncionario, String password, String nome, Date nascimento, String email, String endereco, String cpf, String telefone, String atuacaoProfissional, String grauEscolaridade) {
-        this.codFuncionario = codFuncionario;
+    public Funcionario(String password, String nome, Date nascimento, String email, String endereco, String cpf, String telefone, String atuacaoProfissional, String grauEscolaridade, String sexo) {
         this.password = password;
         this.nome = nome;
         this.nascimento = nascimento;
@@ -34,14 +33,7 @@ public class Funcionario {
         this.telefone = telefone;
         this.atuacaoProfissional = atuacaoProfissional;
         this.grauEscolaridade = grauEscolaridade;
-    }
-
-    public int getCodFuncionario() {
-        return codFuncionario;
-    }
-
-    public void setCodFuncionario(int codFuncionario) {
-        this.codFuncionario = codFuncionario;
+        this.sexo = sexo;
     }
 
     public String getPassword() {
@@ -115,10 +107,18 @@ public class Funcionario {
     public void setGrauEscolaridade(String grauEscolaridade) {
         this.grauEscolaridade = grauEscolaridade;
     }
+    
+    public String getSexo() {
+    	return this.sexo;
+    }
+    
+    public void setSexo(String sexo) {
+    	this.sexo = sexo;
+    }
 
     @Override
     public String toString() {
-        return "Funcionario{" + "codFuncionario=" + codFuncionario + ", password=" + password + ", nome=" + nome + ", nascimento=" + nascimento + ", email=" + email + ", endereco=" + endereco + ", cpf=" + cpf + ", telefone=" + telefone + ", atuacaoProfissional=" + atuacaoProfissional + ", grauEscolaridade=" + grauEscolaridade + '}';
+        return "Funcionario{" +  ", password=" + password + ", nome=" + nome + ", nascimento=" + nascimento + ", email=" + email + ", endereco=" + endereco + ", cpf=" + cpf + ", telefone=" + telefone + ", atuacaoProfissional=" + atuacaoProfissional + ", grauEscolaridade=" + grauEscolaridade + '}';
     }
     
 }

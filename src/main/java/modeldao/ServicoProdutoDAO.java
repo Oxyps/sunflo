@@ -30,10 +30,10 @@ public class ServicoProdutoDAO {
     
     public void inserir(ServicoProduto servicoProduto) throws SQLException {
         open();
-        sql = "INSERT INTO ServicoProduto (codServico, codProduto, valorServico, valorAjuste, valorPromocional) VALUES (?, ?, ?, ?, ?)";
+        sql = "INSERT INTO ServicoProduto (servicoId, produtoId, valorServico, valorAjuste, valorPromocional) VALUES (?, ?, ?, ?, ?)";
         stmt = this.conn.prepareStatement(sql);
         stmt.setInt(1, servicoProduto.getServ().getCodServico());
-        stmt.setInt(2, servicoProduto.getProd().getCodProduto());
+//        stmt.setInt(2, servicoProduto.getProd().getCodProduto());
         stmt.setFloat(3, servicoProduto.getValorSevico());
         stmt.setFloat(4, servicoProduto.getValorAjuste());
         stmt.setFloat(5, servicoProduto.getValorPromocional());

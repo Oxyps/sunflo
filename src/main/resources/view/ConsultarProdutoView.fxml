@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="768.0" maxWidth="1366.0" minHeight="600.0" minWidth="800.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConsultarEstoqueController">
+<BorderPane maxHeight="768.0" maxWidth="1366.0" minHeight="600.0" minWidth="800.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConsultarProdutoController">
    <center>
       <GridPane alignment="CENTER" stylesheets="@../styles/cruds.css" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -27,7 +27,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="back" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true" GridPane.valignment="TOP">
+            <Button fx:id="btnBack" onAction="#onActionBack" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true" GridPane.valignment="TOP">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
                      <image>
@@ -36,7 +36,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="lblconprod" text="Consultar Estoque" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label fx:id="lblconprod" text="Consultar Produto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <TextField fx:id="conprod" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="1000.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="25.0" right="25.0" />
@@ -52,11 +52,13 @@
             </ImageView>
             <TableView fx:id="tableconcprod" prefHeight="133.0" prefWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <columns>
-                  <TableColumn fx:id="idtableconprod" prefWidth="41.0" text="ID" />
-                  <TableColumn fx:id="nometableconprod" prefWidth="372.0" text="Nome" />
-                  <TableColumn fx:id="marcatableconprod" prefWidth="356.0" text="Marca" />
-                  <TableColumn fx:id="qmintableconprod" prefWidth="147.0" text="Qtd. Mínima" />
-                  <TableColumn fx:id="qatualtableconprod" prefWidth="125.0" text="Qtd. Atual" />
+                  <TableColumn fx:id="idtableconprod" prefWidth="88.0" text="ID" />
+                  <TableColumn fx:id="nometableconprod" prefWidth="250.0" text="Nome" />
+                  <TableColumn fx:id="marcatableconprod" prefWidth="238.0" text="Marca" />
+                  <TableColumn fx:id="desctableconprod" prefWidth="252.0" text="Descrição" />
+                  <TableColumn fx:id="qmintableconprod" minWidth="0.0" prefWidth="213.0" text="Qtd. mínima" />
+                  <TableColumn fx:id="qatualtableconprod" minWidth="0.0" prefWidth="213.0" text="Qtd. em estoque" />
+                  <TableColumn fx:id="precotableconprod" minWidth="0.0" prefWidth="213.0" text="Preço individual" />
                </columns>
             </TableView>
          </children>

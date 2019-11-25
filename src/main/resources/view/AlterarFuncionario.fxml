@@ -16,73 +16,75 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <BorderPane maxHeight="768.0" maxWidth="1366.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AlterarFuncionarioController">
-   <center>
+   <top>
+      <Button fx:id="back" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true" BorderPane.alignment="TOP_LEFT">
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="50.0" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/backbttn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </top>
+   <bottom>
       <GridPane alignment="CENTER" hgap="20.0" maxHeight="768.0" maxWidth="1366.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1319.0" stylesheets="@../styles/cruds.css" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="0.0" prefWidth="394.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="820.0" minWidth="10.0" prefWidth="375.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="396.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="820.0" minWidth="10.0" prefWidth="454.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="317.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="315.0" minHeight="10.0" prefHeight="161.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="4.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="315.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="65.0" minHeight="44.0" prefHeight="48.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="63.0" minHeight="45.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="55.0" minHeight="45.0" prefHeight="55.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="32.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="58.0" minHeight="45.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="52.0" minHeight="4.0" prefHeight="48.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="250.0" minHeight="0.0" prefHeight="130.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="53.0" minHeight="29.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="59.0" minHeight="0.0" prefHeight="59.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="250.0" minHeight="0.0" prefHeight="71.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="back" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="70.0" text="Voltar" textAlignment="CENTER" underline="true">
-               <graphic>
-                  <ImageView fitHeight="78.0" fitWidth="50.0" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/backbttn.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Label fx:id="altfunclbl" text="Alterar Funcionário" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <TextField fx:id="CPFaltfunc" minHeight="-Infinity" prefHeight="45.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <TextField fx:id="nomealtfunc" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <TextField fx:id="telaltfunc" minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+            <Label fx:id="altfunclbl" prefHeight="52.0" prefWidth="394.0" text="Alterar Funcionário" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <TextField fx:id="nomealtfunc" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <TextField fx:id="telaltfunc" minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <DatePicker fx:id="datealtfunc" minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="dia/mês/ano" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField fx:id="emailaltfunc" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" pickOnBounds="false" prefHeight="45.0" prefWidth="730.0" scaleShape="false" snapToPixel="false" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-            <TextField fx:id="endaltfunc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="730.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-            <Label text="Atuação Profissional:" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-            <Label text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-            <Label text="Telefone:" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-            <Label text="Data de Nascimento:" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-            <Label text="Endereço:" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="BOTTOM" />
-            <Label text="E-mail:" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
-            <Button fx:id="savealtfunc" mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
-            <Label text="Selecione o funcionário:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <TableView fx:id="altfunctable" minHeight="-Infinity" prefHeight="249.0" prefWidth="433.0" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <DatePicker fx:id="datealtfunc" minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="dia/mês/ano" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="emailaltfunc" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" pickOnBounds="false" prefHeight="45.0" prefWidth="730.0" scaleShape="false" snapToPixel="false" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+            <TextField fx:id="endaltfunc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="789.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+            <Label text="Atuação Profissional:" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+            <Label text="Telefone:" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+            <Label text="Data de Nascimento:" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <Label text="Endereço:" GridPane.columnIndex="1" GridPane.rowIndex="10" GridPane.valignment="BOTTOM" />
+            <Label text="E-mail:" GridPane.columnIndex="2" GridPane.rowIndex="8" GridPane.valignment="BOTTOM" />
+            <Button fx:id="savealtfunc" mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+            <Label text="Selecione o funcionário:" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <TableView fx:id="altfunctable" minHeight="-Infinity" prefHeight="278.0" prefWidth="395.0" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <columns>
                   <TableColumn fx:id="idalttablefunc" prefWidth="137.0" text="ID" />
                   <TableColumn fx:id="nomealttablefunc" prefWidth="318.0" text="Nome" />
                </columns>
             </TableView>
-            <Button fx:id="altfuncbttn" mnemonicParsing="false" prefHeight="51.0" prefWidth="200.0" text="Alterar" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
-            <Label text="Nome:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <TextField fx:id="altatprof" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="nickaltfunc" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="479.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label text="Apelido:" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label text="Grau de Escolaridade:" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
-            <ChoiceBox fx:id="grauescalt" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="474.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Nome:" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <TextField fx:id="altatprof" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="nickaltfunc" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="479.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Apelido:" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <Label text="Grau de Escolaridade:" GridPane.columnIndex="1" GridPane.rowIndex="8" GridPane.valignment="BOTTOM" />
+            <ChoiceBox fx:id="grauescalt" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="474.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Selecione o funcionario:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button fx:id="excluirFuncionario" mnemonicParsing="false" prefHeight="51.0" prefWidth="197.0" text="Excluir" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
          </children>
          <padding>
             <Insets left="80.0" right="80.0" />
          </padding>
       </GridPane>
-   </center>
+   </bottom>
 </BorderPane>

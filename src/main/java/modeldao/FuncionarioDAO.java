@@ -72,7 +72,6 @@ public class FuncionarioDAO {
     		ResultSet resultado= pstm.executeQuery();
     		if(resultado.next()) {
     			funcionarioCadastrado= new Funcionario(
-    					resultado.getInt("codFuncionario"),
     					resultado.getString("password"),
     					resultado.getString("nome"),
     					resultado.getDate("nascimento"),
@@ -81,7 +80,8 @@ public class FuncionarioDAO {
     					resultado.getString("cpf"),
     					resultado.getString("telefone"),
     					resultado.getString("atuacaoProfissional"),
-    					resultado.getString("grauEscolaridade")
+    					resultado.getString("grauEscolaridade"),
+    					resultado.getString("sexo")
             	);
     		}
     		return funcionarioCadastrado;

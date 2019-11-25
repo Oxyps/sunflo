@@ -26,15 +26,15 @@ public class RenderizarView {
         stage.setTitle("Sunflô");
         stage.getIcons().add(new Image("/imagens/sunflo.png"));
         stage.setResizable(false);
+        
         stage.show();
     }
-    
-    public void criarMensagemError(String mensagem) {
+     public void criarMensagemError(String mensagem) {
     	Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText(mensagem);
         alert.show();
     }
-    public void criarMensagemSuccess(String mensagem) {
+    public void criarMensagemConfirmation(String mensagem) {
     	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     	alert.setContentText(mensagem);
     	alert.show();

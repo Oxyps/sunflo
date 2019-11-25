@@ -30,7 +30,7 @@ public class AgendaDAO {
     
     public void inserir(Agenda agenda) throws SQLException {
         open();
-        sql = "INSERT INTO Agenda (data, horario) VALUES (?, ?)";
+        sql = "INSERT INTO Agenda (dia, hora) VALUES (?, ?)";
         stmt = this.conn.prepareStatement(sql);
         stmt.setDate(1, agenda.getData());
         stmt.setTime(2, agenda.getHorario());
@@ -40,7 +40,7 @@ public class AgendaDAO {
 
     public void update(Agenda agenda) throws SQLException {
         open();
-        sql = "UPDATE Agenda SET data = ?, horario = ?";
+        sql = "UPDATE Agenda SET dia = ?, hora = ?";
         stmt = this.conn.prepareStatement(sql);
         stmt.setDate(1, agenda.getData());
         stmt.setTime(2, agenda.getHorario());
